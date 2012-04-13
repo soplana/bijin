@@ -1,0 +1,123 @@
+<head>
+    <title>俺の美人時計</title> 
+    <meta charset=UTF-8> 
+    
+    <style type="text/css"> 
+    html{font-family: Arial;font-size: 12px;background-color: #FFFFFF;}
+    #content{ width: 100%;height: 100%;}
+    #block{width: 900px; margin:0 auto;}
+    #title{width: 900px;height: 100px;}
+    #title h1{color: #628319; font-size: 40px}
+    #submit{
+      margin: 20px 0px 40px 0px;
+      padding: 5px;
+       border-radius:5px;
+       -webkit-border-radius:5px;
+       -moz-border-radius:5px;
+       background-color: #94c729;
+       color: white;
+       height: 23px;}
+    .imageBlock{ width: 900px; margin:0 auto;}
+    .bijinImage{width: 260px;padding: 0px 20px 40px 20px;}
+    .clear{clear: both;}
+    .left{float: left}
+    .right{float: right}
+    
+    #link{
+      margin: 0px 0px 5px;
+    }
+    #link a:link{
+        display: inline-block;
+        font-size: 10px;
+        color:#FFF;
+        background-color: #628319;
+        border-radius:3px;
+        -webkit-border-radius:3px;
+        -moz-border-radius:3px;
+        padding: 5px 8px 5px 8px;
+    }
+    #link a:link{
+        text-decoration:none;
+        color: #fff;
+    }
+    #link a:visited{
+        text-decoration:none;
+        color: #fff;
+    }
+    #link a:hover{
+        text-decoration:none;
+        color: #fff;
+    }
+    #link a:active{
+        text-decoration:none;
+        color: #fff;
+    }
+    .bijinImage canvas{
+      border:1px #cdcdcd solid;
+      background-color: #ffffff;
+    }
+    .favorite{
+      margin: 0px 0px 0px 140px;
+    }
+    .favorite:hover{
+    }
+    .favorite a:link{text-decoration:none;    color: #cdcdcd; font-size: 11px}
+    .favorite a:visited{text-decoration:none; color: #1a2dd2;}
+    .favorite a:hover{text-decoration:none;   color: #1a2dd2;}
+    .favorite a:active{text-decoration:none;  color: #1a2dd2;}
+    </style> 
+    
+</head>
+
+<body>
+  <!-- content --> 
+  <div id="content"> 
+    {{> main }}
+  </div> 
+</body>
+
+<template name="main">
+  <div id="block"> 
+  
+  
+    <div id="title" class="left"> 
+      <h1>俺の美人時計</h1> 
+    </div> 
+    
+    <div id="submit" class="clear"> 
+      <div style="padding:3px 0px 0px" class="left">
+      見たい美人の時間を、半角数字で入力してください＞＜&nbsp;&nbsp;&nbsp;
+      </div>
+      
+      <div class="right">
+      hh:<input type="number" id="hh" min="0" max="23" size="4" value="0"/>
+      mm:<input type="number" id="mm" min="0" max="59" size="4" value="0"/>
+      {{> show }} 
+      {{> random }} 
+      </div> 
+    </div> 
+    
+
+    <div id="imageBlock">
+      {{#each canvases}}
+        {{> canvas }}
+      {{/each}}
+    </div> 
+
+  </div>   
+</template>
+
+<template name="random">
+      <button id="random">random</button> 
+</template>
+
+<template name="show">
+      <button id="show">show</button> 
+</template>
+
+<template name="canvas">
+  <div class="bijinImage left" name="myBijin">
+    <div class="left">{{title}}</div>
+    <div class="clear"><canvas id="{{id}}_canvas" width="240" height="320"></canvas></div>
+  </div>
+</template>
